@@ -1,0 +1,33 @@
+﻿@model BankaWebEL.DTOs.AccountDTO
+
+<h2>Hesap Düzenle</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="IBAN">IBAN</label>
+        <input type="text" class="form-control" asp-for="IBAN" />
+        <span asp-validation-for="IBAN" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Balance">Bakiye</label>
+        <input type="number" class="form-control" asp-for="Balance" />
+        <span asp-validation-for="Balance" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="AccountType">Hesap Türü</label>
+        <input type="text" class="form-control" asp-for="AccountType" />
+        <span asp-validation-for="AccountType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Currency">Para Birimi</label>
+        <input type="text" class="form-control" asp-for="Currency" />
+        <span asp-validation-for="Currency" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

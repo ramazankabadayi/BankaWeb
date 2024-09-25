@@ -1,0 +1,14 @@
+﻿@model BankaWebEL.DTOs.CustomerDTO
+
+<h2>Müşteriyi Sil</h2>
+
+<div>
+    <h3>@Model.FirstName @Model.LastName</h3>
+    <p>Bu müşteriyi silmek istediğinize emin misiniz?</p>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a href="/Customers/Index" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

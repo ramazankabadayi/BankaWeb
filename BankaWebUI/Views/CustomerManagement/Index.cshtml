@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BankaWebEL.DTOs.CustomerDTO>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Müşteri Yönetimi</h2>
+                <a href="@Url.Action("Create", "CustomerManagement")" class="btn btn-success">
+                    <i class="fas fa-user-plus"></i> Yeni Müşteri Ekle
+                </a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Email</th>
+                            <th>Telefon</th>
+                            <th>Adres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            @foreach (var customer in Model)
+                            {
+                                <tr>
+                                    <td>@customer.FirstName</td>
+                                    <td>@customer.LastName</td>
+                                    <td>@customer.Email</td>
+                                    <td>@customer.PhoneNumber</td>  
+                                    <td>@customer.Address</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">Kayıtlı müşteri bulunmamaktadır.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "BankaWeb'e Hoşgeldiniz";
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">BankaWeb'e Hoşgeldiniz</h1>
+        <p class="lead">Lütfen giriş yapmak istediğiniz kullanıcı tipini seçin</p>
+        <hr class="my-4">
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Admin Girişi</h5>
+                    <p class="card-text">Sisteme yönetici olarak giriş yapmak için buraya tıklayın.</p>
+                    <a href="@Url.Action("Login", "Account", new { role = "Admin" })" class="btn btn-primary btn-block">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Banka Çalışanı Girişi</h5>
+                    <p class="card-text">Sisteme banka çalışanı olarak giriş yapmak için buraya tıklayın.</p>
+                    <a href="@Url.Action("Login", "Account", new { role = "Employee" })" class="btn btn-secondary btn-block">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kullanıcı Girişi</h5>
+                    <p class="card-text">Sisteme kullanıcı olarak giriş yapmak için buraya tıklayın.</p>
+                    <a href="@Url.Action("Login", "Account", new { role = "Customer" })" class="btn btn-secondary btn-block">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model BankaWebUI.Models.ShowAccountsViewModel
+
+<h2>Hesaplar</h2>
+
+<table class="table">
+    <thead>
+            <th>Ad Soyad</th>
+            <th>IBAN</th>
+            <th>Bakiye</th>
+            <th>Hesap Türü</th>
+            <th>Para Birimi</th>
+        </th>
+    </thead>
+    <tbody>
+        @foreach (var account in Model.accountDTO)
+        {
+            <tr>
+                <td>
+                    @{
+                        var fullName = Model.customerDTO.FirstOrDefault(c => c.Id == account.UserId);
+                        if (fullName != null)
+                        {
+                            <span>
+                                @(fullName.FirstName)  @(fullName.LastName)</span>
+                        }
+                    }
+                </td>
+                <td>@account.IBAN</td>
+                <td>@account.Balance @(Model.currencyDTO.FirstOrDefault(c => c.Id == account.CurrencyId)?.Symbol)</td>
+                <td>
+                    @{
+                        var accountType = Model.accountTypeDTO.FirstOrDefault(c => c.Id == account.AccountTypeId);
+                        if (accountType != null)
+                        {
+                            @accountType.TypeName 
+                        }
+                    }
+                </td>
+                <td>@Model.currencyDTO.FirstOrDefault(c => c.Id == account.CurrencyId)?.CurrencyName</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/BankAccounts/Create" class="btn btn-success">Yeni Hesap Ekle</a>
+<a href="/Home/Index" class="btn btn-success" style="margin-left:30px">Geri Dön</a>

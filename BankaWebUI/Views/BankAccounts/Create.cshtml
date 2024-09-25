@@ -1,0 +1,52 @@
+﻿@model CreateAccountViewModel
+
+<h2>Hesap Oluştur</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="IBAN">IBAN</label>
+        <input asp-for="Account.IBAN" class="form-control" />
+        <span asp-validation-for="Account.IBAN" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Balance">Bakiye</label>
+        <input asp-for="Account.Balance" class="form-control" />
+        <span asp-validation-for="Account.Balance" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="AccountTypeId">Hesap Türü</label>
+        <select asp-for="Account.AccountTypeId" class="form-control">
+            @foreach (var accountType in Model.AccountTypes)
+            {
+                <option value="@accountType.Id">@accountType.TypeName</option>
+            }
+        </select>
+        <span asp-validation-for="Account.AccountTypeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="CurrencyId">Para Birimi</label>
+        <select asp-for="Account.CurrencyId" class="form-control">
+            @foreach (var currency in Model.Currencies)
+            {
+                <option value="@currency.Id">@currency.CurrencyName</option>
+            }
+        </select>
+        <span asp-validation-for="Account.CurrencyId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="UserId">Müşteri</label>
+        <select asp-for="Account.UserId" class="form-control">
+            @foreach (var customer in Model.Customers)
+            {
+                <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+            }
+        </select>
+        <span asp-validation-for="Account.UserId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Hesap Oluştur</button>
+</form>

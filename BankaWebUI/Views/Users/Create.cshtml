@@ -1,0 +1,42 @@
+﻿@model BankaWebUI.Models.UserCreateViewModel
+
+<h2>Yeni Kullanıcı Ekle</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="FirstName">Adı</label>
+        <input type="text" class="form-control" name="FirstName" required />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Soyadı</label>
+        <input type="text" class="form-control" name="LastName" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">E-posta</label>
+        <input type="email" class="form-control" name="Email" required />
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">Telefon Numarası</label>
+        <input type="text" class="form-control" name="PhoneNumber" required />
+    </div>
+    <div class="form-group">
+        <label for="Address">Adres</label>
+        <input type="text" class="form-control" name="Address" required />
+    </div>
+    <div class="form-group">
+        <label for="DateOfBirth">Doğum Tarihi</label>
+        <input type="date" class="form-control" name="DateOfBirth" required />
+    </div>
+    <div class="form-group">
+        <label for="IdentificationNumber">Kimlik Numarası</label>
+        <input type="text" class="form-control" name="IdentificationNumber" required />
+    </div>
+    <div class="form-group">
+        <label for="Password">Parola</label>
+        <input type="password" class="form-control" name="Password" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+</form>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BankaWebEL.DTOs.AccountDTO>
+
+<h2>Hesaplar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IBAN</th>
+            <th>Bakiye</th>
+            <th>Hesap Türü</th>
+            <th>Para Birimi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.IBAN</td>
+                <td>@account.Balance</td>
+                <td>@account.AccountType</td>
+                <td>@account.Currency</td>
+                <td>
+                    <a href="/Accounts/Edit/@account.Id" class="btn btn-primary">Düzenle</a>
+                    <a href="/Accounts/Delete/@account.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Accounts/Create" class="btn btn-success">Yeni Hesap Ekle</a>

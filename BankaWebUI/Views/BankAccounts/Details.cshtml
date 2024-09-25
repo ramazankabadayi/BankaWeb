@@ -1,0 +1,24 @@
+﻿@model BankaWebEL.DTOs.AccountDTO
+
+<h2>Hesap Detayları</h2>
+
+<table class="table">
+    <tr>
+        <th>IBAN</th>
+        <td>@Model.IBAN</td>
+    </tr>
+    <tr>
+        <th>Bakiye</th>
+        <td>@Model.Balance</td>
+    </tr>
+    <tr>
+        <th>Hesap Türü</th>
+        <td>@Model.AccountType</td>
+    </tr>
+    <tr>
+        <th>Para Birimi</th>
+        <td>@Model.Currency</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("Index", "Accounts")" class="btn btn-secondary">Geri</a>
